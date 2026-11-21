@@ -95,295 +95,31 @@ const saveState = (state: SavedState) => {
 // categories and questions live in localStorage and are managed from the UI.
 const defaultCategories = [
   'Pytania ogólne',
-  'Kobiety i związki',
-  'Nauka, studia, praca',
-  'Studnia',
-  'Pytania Combo',
+  'Podróże',
 ];
 
 const defaultQuestions: Question[] = [
   // General Knowledge (5)
   {
     id: 1,
-    text: 'Jakiego koloru bluzy nie mam?',
+    text: 'Ile mam lat?',
     category: 'Pytania ogólne',
     answers: [
-      { text: 'Beżowa', isCorrect: false },
-      { text: 'Niebieska', isCorrect: false },
-      { text: 'Czerwona', isCorrect: false },
-      { text: 'Zielona', isCorrect: true },
+      { text: '20', isCorrect: false },
+      { text: '25', isCorrect: false },
+      { text: '27', isCorrect: true },
+      { text: '30', isCorrect: false },
     ],
   },
   {
     id: 2,
-    text: 'W jakim kraju nigdy nie byłem?',
-    category: 'Pytania ogólne',
+    text: 'W jakim kraju nie byłem?',
+    category: 'Podróże',
     answers: [
-      { text: 'Rosja', isCorrect: false },
-      { text: 'Belgia', isCorrect: true },
-      { text: 'Macedonia', isCorrect: false },
-      { text: 'USA', isCorrect: false },
-    ],
-  },
-  {
-    id: 3,
-    text: 'Ile ważę kg? Po obudzeniu, w piżamie, po skorzystaniu z toalety. Stan na 24.01.2026.',
-    category: 'Pytania ogólne',
-    answers: [
-      { text: '78', isCorrect: false },
-      { text: '83', isCorrect: false },
-      { text: '88', isCorrect: true },
-      { text: '93', isCorrect: false },
-    ],
-  },
-  {
-    id: 4,
-    text: 'Jaki jest mój ulubiony kanał na YT?',
-    category: 'Pytania ogólne',
-    answers: [
-      { text: 'Mietczyński', isCorrect: true },
-      { text: 'GM Hikaru Nakamura', isCorrect: false },
-      { text: 'freeCodeCamp', isCorrect: false },
-      { text: 'Polsport - Michał Pol', isCorrect: false },
-    ],
-  },
-  {
-    id: 5,
-    text: 'Jakim dezodorantem się psikam?',
-    category: 'Pytania ogólne',
-    answers: [
-      { text: 'Old Spice', isCorrect: false },
-      { text: 'STR8', isCorrect: true },
-      { text: 'Axe', isCorrect: false },
-      { text: 'Adidas', isCorrect: false },
-    ],
-  },
-
-  // Science & Nature (5)
-  {
-    id: 6,
-    text: 'Z kim byłem najwięcej razy na weselu (takim prawdziwym, nie piknik w lesie)? Uszereguj od najwięcej do najmniej.',
-    category: 'Kobiety i związki',
-    answers: [
-      { text: 'Ewela, Zuza, Kasia, Natalia', isCorrect: false },
-      { text: 'Zuza, Ewela, Kasia, Natalia', isCorrect: true },
-      { text: 'Ewela, Zuza, Natalia, Kasia', isCorrect: false },
-      { text: 'Zuza, Ewela, Natalia, Kasia', isCorrect: false },
-    ],
-  },
-  {
-    id: 7,
-    text: 'Ile wynosi mój łączny staż związkowy?',
-    category: 'Kobiety i związki',
-    answers: [
-      { text: '6 miesięcy', isCorrect: false },
-      { text: '12 miesięcy', isCorrect: false },
-      { text: '18 miesięcy', isCorrect: true },
-      { text: '24 miesiące', isCorrect: false },
-    ],
-  },
-  {
-    id: 8,
-    text: 'Jak nazywała się moja ulubiona fryzjerka, gdy mieszkałem na Włochach?',
-    category: 'Kobiety i związki',
-    answers: [
-      { text: 'Pani Ola', isCorrect: false },
-      { text: 'Pani Gosia', isCorrect: false },
-      { text: 'Pani Iwonka', isCorrect: false },
-      { text: 'Pani Agata', isCorrect: true },
-    ],
-  },
-  {
-    id: 9,
-    text: 'Z którą kobietą nigdy nie byłem w klubie?',
-    category: 'Kobiety i związki',
-    answers: [
-      { text: 'Ula Chmielewska', isCorrect: false },
-      { text: 'Patrycja Klimczak', isCorrect: false },
-      { text: 'Agnieszka Koronowska', isCorrect: false },
-      { text: 'Ania Burakowska', isCorrect: true },
-    ],
-  },
-  {
-    id: 10,
-    text: 'Z iloma kobietami się całowałem w życiu?',
-    category: 'Kobiety i związki',
-    answers: [
-      { text: '3', isCorrect: false },
-      { text: '4', isCorrect: true },
-      { text: '5', isCorrect: false },
-      { text: '6', isCorrect: false },
-    ],
-  },
-
-  // Math & Logic (5)
-  {
-    id: 11,
-    text: 'W ilu firmach prawnie pracowałem (obecna też się liczy)?',
-    category: 'Nauka, studia, praca',
-    answers: [
-      { text: '6', isCorrect: false },
-      { text: '7', isCorrect: true },
-      { text: '8', isCorrect: false },
-      { text: '9', isCorrect: false },
-    ],
-  },
-  {
-    id: 12,
-    text: 'Ile zajęło mi ukończenie studiów z informatyki? Licencjat + magisterka',
-    category: 'Nauka, studia, praca',
-    answers: [
-      { text: '5 lat', isCorrect: false },
-      { text: 'Więcej niż 5 lat, ale mniej niż 6', isCorrect: false },
-      { text: '6 lat', isCorrect: false },
-      { text: 'Więcej niż 6 lat', isCorrect: true },
-    ],
-  },
-  {
-    id: 13,
-    text: 'Z jakiej atrakcji mojego biura najczęściej korzystam?',
-    category: 'Nauka, studia, praca',
-    answers: [
-      { text: 'Siłownia', isCorrect: false },
-      { text: 'Ping-pong', isCorrect: false },
-      { text: 'Nap room', isCorrect: true },
-      { text: 'Kawiarnia', isCorrect: false },
-    ],
-  },
-  {
-    id: 14,
-    text: 'Jak zacząłem programować?',
-    category: 'Nauka, studia, praca',
-    answers: [
-      { text: 'Poszedłem na kółko informatyczne', isCorrect: false },
-      { text: 'Dostałem w prezencie książkę do nauki', isCorrect: true },
-      { text: 'Rozwiązałem zagadkę logiczną na lekcji informatyki', isCorrect: false },
-      { text: 'Oglądałem kanał na YouTube', isCorrect: false },
-    ],
-  },
-  {
-    id: 15,
-    text: 'Pytanie z materiałem wideo. Ile lat ma dżentelmen na filmie?',
-    category: 'Nauka, studia, praca',
-    answers: [
-      { text: '11', isCorrect: false },
-      { text: '12', isCorrect: false },
-      { text: '13', isCorrect: true },
-      { text: '14', isCorrect: false },
-    ],
-  },
-
-  // Literature & Arts (5)
-  {
-    id: 16,
-    text: 'Kiedy pojawiłem się po raz pierwszy w Studni?',
-    category: 'Studnia',
-    answers: [
-      { text: 'W Grudniu 2017 na śniadaniu po roratach', isCorrect: false },
-      { text: 'W Grudniu 2017 na spotkaniu z Łukaszem Lewandowskim', isCorrect: true },
-      { text: 'W Styczniu 2018 na spotkaniu z Januszem Traczem', isCorrect: false },
-      { text: 'W Lutym 2018 na wyjeździe feriowym', isCorrect: false },
-    ],
-  },
-  {
-    id: 17,
-    text: 'Jaki był mój ostatni wyjazd Studniowy?',
-    category: 'Studnia',
-    answers: [
-      { text: 'Czerwcówka', isCorrect: false },
-      { text: 'Małe Ciche', isCorrect: false },
-      { text: 'Majówka', isCorrect: true },
-      { text: 'Tatry', isCorrect: false },
-    ],
-  },
-  {
-    id: 18,
-    text: 'Kto nigdy mnie nie wylosował na Mikołajkach?',
-    category: 'Studnia',
-    answers: [
-      { text: 'Pola Witecka', isCorrect: false },
-      { text: 'Kasia Gołębiowska', isCorrect: false },
-      { text: 'Ania Burakowska', isCorrect: false },
-      { text: 'Ania Boryczko', isCorrect: true },
-    ],
-  },
-  {
-    id: 19,
-    text: 'Z kim NIE planowałem wynajmować wspólnie mieszkania?',
-    category: 'Studnia',
-    answers: [
-      { text: 'Szymon Papierzewski', isCorrect: true },
-      { text: 'Oskar Kobierecki', isCorrect: false },
-      { text: 'Bartek Wydrych', isCorrect: false },
-      { text: 'Wojtek Moczydłowski', isCorrect: false },
-    ],
-  },
-  {
-    id: 20,
-    text: 'W ilu filmach na FZK grałem?',
-    category: 'Studnia',
-    answers: [
-      { text: '3', isCorrect: false },
-      { text: '4', isCorrect: false },
-      { text: '5', isCorrect: false },
-      { text: '6', isCorrect: true },
-    ],
-  },
-
-  // Pytania Combo
-  {
-    id: 21,
-    text: 'Które zdanie jest fałszywe?',
-    category: 'Pytania Combo',
-    answers: [
-      { text: 'Pisałem z laureatem nagrody Nobla', isCorrect: false },
-      { text: 'Pomagałem robić stronę internetową dla emerytowanej wokalistki', isCorrect: true },
-      { text: 'Znana polska szachistka uprawiała seks w moim mieszkaniu', isCorrect: false },
-      { text: 'Rozmawiałem przez telefon ze znanym reżyserem', isCorrect: false },
-    ],
-  },
-  {
-    id: 22,
-    text: 'Które zdanie jest prawdziwe?',
-    category: 'Pytania Combo',
-    answers: [
-      { text: 'Moja Babcia dała mi łyżkę, którą kiedyś jadł Dostojewski', isCorrect: false },
-      { text: 'Byłem raz w odwiedzinach u Sylwii w Norwegii', isCorrect: false },
-      { text: 'Znam 3 słowa w języku migowym', isCorrect: false },
-      { text: 'Nigdy nie zatrzymała mnie policja na drodze', isCorrect: true },
-    ],
-  },
-  {
-    id: 23,
-    text: 'Które zdanie jest fałszywe?',
-    category: 'Pytania Combo',
-    answers: [
-      { text: 'Śpiewałem kiedyś w scholi na Dwudziestce', isCorrect: false },
-      { text: 'Zacząłem programować w wieku 13 lat', isCorrect: false },
-      { text: 'Byłem na pieszej pielgrzymce do Częstochowy', isCorrect: true },
-      { text: 'Ktoś chciał mnie wciągnąć do sekty', isCorrect: false },
-    ],
-  },
-  {
-    id: 24,
-    text: 'Które zdanie jest fałszywe?',
-    category: 'Pytania Combo',
-    answers: [
-      { text: 'Byłem na 5 wieczorach kawalerskich', isCorrect: false },
-      { text: 'Zwiedzałem z Moniką Wolską zoo w Monachium', isCorrect: true },
-      { text: 'Mały Niebieski ma przebieg około 36 tys. km', isCorrect: false },
-      { text: 'Studiowałem na 3 różnych kierunkach', isCorrect: false },
-    ],
-  },
-  {
-    id: 25,
-    text: 'Które zdanie jest prawdziwe?',
-    category: 'Pytania Combo',
-    answers: [
-      { text: 'Przebiegłem 3 razy półmaraton', isCorrect: true },
-      { text: 'Mój typ osobowości to ISTJ (Logistyk)', isCorrect: false },
-      { text: 'Założyłem się kiedyś o 500 złotych i przegrałem', isCorrect: false },
-      { text: 'Zdałem prawo jazdy za drugim razem', isCorrect: false },
+      { text: 'Portugalia', isCorrect: false },
+      { text: 'Finlandia', isCorrect: false },
+      { text: 'Kongo', isCorrect: true },
+      { text: 'Albania', isCorrect: false },
     ],
   },
 ];
